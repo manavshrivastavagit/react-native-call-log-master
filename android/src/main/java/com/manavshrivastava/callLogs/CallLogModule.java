@@ -60,7 +60,7 @@ public class CallLogModule extends ReactContextBaseJavaModule {
             TelephonyManager telemamanger = (TelephonyManager) this.context.getSystemService(this.context.TELEPHONY_SERVICE);
             String getSimSerialNumber = telemamanger.getSimSerialNumber();
             String getSim1Number = telemamanger.getLine1Number();
-            String getSim2Number = telemamanger.getLine2Number();
+            // String getSim2Number = telemamanger.getLine2Number();
 
             WritableArray result = Arguments.createArray();
 
@@ -130,7 +130,7 @@ public class CallLogModule extends ReactContextBaseJavaModule {
                     callLog.putString("geocodedLocation", geocodedLocation);
                     callLog.putString("subscriptionId", subscriptionId); 
                     callLog.putString("Sim1Number", getSim1Number);
-                    callLog.putString("Sim2Number", getSim2Number);
+                    // callLog.putString("Sim2Number", getSim2Number);
                     callLog.putString("timestamp", timestampStr);
                     callLog.putString("dateTime", dateTime);
                     callLog.putString("type", type);
