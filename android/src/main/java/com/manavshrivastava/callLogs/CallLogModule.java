@@ -57,7 +57,7 @@ public class CallLogModule extends ReactContextBaseJavaModule {
             Cursor cursor = this.context.getContentResolver().query(CallLog.Calls.CONTENT_URI,
                     null, null, null, CallLog.Calls.DATE + " DESC");
 
-            TelephonyManager telemamanger = (TelephonyManager)getSystemService(this.context.TELEPHONY_SERVICE);
+            TelephonyManager telemamanger = (TelephonyManager) this.context.getSystemService(this.context.TELEPHONY_SERVICE);
             String getSimSerialNumber = telemamanger.getSimSerialNumber();
             String getSim1Number = telemamanger.getLine1Number();
             String getSim2Number = telemamanger.getLine2Number();
