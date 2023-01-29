@@ -84,6 +84,8 @@ public class CallLogModule extends ReactContextBaseJavaModule {
             final int NAME_COLUMN_INDEX = cursor.getColumnIndex(Calls.CACHED_NAME);
             final int SIM_NUMBER_COLUMN_INDEX = cursor.getColumnIndex(Calls.VIA_NUMBER);
             final int GEOCODED_LOCATION_COLUMN_INDEX = cursor.getColumnIndex(Calls.GEOCODED_LOCATION);
+            final int PHONE_ACCOUNT_ID_COLUMN_INDEX = cursor.getColumnIndex(Calls.PHONE_ACCOUNT_ID);
+            
             
 
             boolean minTimestampDefined = minTimestamp != null && !minTimestamp.equals("0");
@@ -95,9 +97,9 @@ public class CallLogModule extends ReactContextBaseJavaModule {
                 String name = cursor.getString(NAME_COLUMN_INDEX);
                 String simNumber = cursor.getString(SIM_NUMBER_COLUMN_INDEX);
                 String geocodedLocation = cursor.getString(GEOCODED_LOCATION_COLUMN_INDEX);
+                String subscriptionId = cursor.getString(PHONE_ACCOUNT_ID_COLUMN_INDEX);
                 
                 
-
                 String timestampStr = cursor.getString(DATE_COLUMN_INDEX);
                 minTimestampReached = minTimestampDefined && Long.parseLong(timestampStr) <= Long.parseLong(minTimestamp);
 
@@ -120,6 +122,7 @@ public class CallLogModule extends ReactContextBaseJavaModule {
                     callLog.putString("name", name); 
                     callLog.putString("simNumber", simNumber);
                     callLog.putString("geocodedLocation", geocodedLocation);
+                    callLog.putString("subscriptionId", subscriptionId);
                     callLog.putString("timestamp", timestampStr);
                     callLog.putString("dateTime", dateTime);
                     callLog.putString("type", type);
