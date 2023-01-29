@@ -25,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import javax.annotation.Nullable;
+import android.telephony.TelephonyManager;  
 
 public class CallLogModule extends ReactContextBaseJavaModule {
 
@@ -55,6 +56,11 @@ public class CallLogModule extends ReactContextBaseJavaModule {
         try {
             Cursor cursor = this.context.getContentResolver().query(CallLog.Calls.CONTENT_URI,
                     null, null, null, CallLog.Calls.DATE + " DESC");
+
+            TelephonyManager telemamanger = (TelephonyManager) getSystemService(this.context.TELEPHONY_SERVICE);
+            String getSimSerialNumber = telemamanger.getSimSerialNumber();
+            String getSim1Number = telemamanger.getLine1Number();
+            String getSim2Number = telemamanger.getLine2Number();
 
             WritableArray result = Arguments.createArray();
 
@@ -122,7 +128,9 @@ public class CallLogModule extends ReactContextBaseJavaModule {
                     callLog.putString("name", name); 
                     callLog.putString("simNumber", simNumber);
                     callLog.putString("geocodedLocation", geocodedLocation);
-                    callLog.putString("subscriptionId", subscriptionId);
+                    callLog.putString("subscriptionId", subscriptionId); 
+                    callLog.putString("getSim1Number", getSim1Number);
+                     callLog.putString("getSim2Number", getSim2Number);
                     callLog.putString("timestamp", timestampStr);
                     callLog.putString("dateTime", dateTime);
                     callLog.putString("type", type);
