@@ -1,0 +1,24 @@
+{
+  "name": "react-native-call-log-master",
+  "version": "1.0.0",
+  "description": "fetch call logs",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manavshrivastavagit/react-native-call-log.git"
+  },
+  "keywords": [
+    "react-native",
+    "android",
+    "Call Log",
+    "npm",
+    "react native package",
+    "package"
+  ],
+  "author": "manav shrivastava",
+  "license": "ISC"
+}
