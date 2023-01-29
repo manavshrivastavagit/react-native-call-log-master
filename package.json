@@ -1,6 +1,6 @@
 {
   "name": "react-native-call-log-master",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "fetch call logs",
   "main": "index.js",
   "types": "index.d.ts",

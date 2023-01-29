@@ -57,9 +57,9 @@ public class CallLogModule extends ReactContextBaseJavaModule {
             Cursor cursor = this.context.getContentResolver().query(CallLog.Calls.CONTENT_URI,
                     null, null, null, CallLog.Calls.DATE + " DESC");
 
-            TelephonyManager telemamanger = (TelephonyManager) this.context.getSystemService(this.context.TELEPHONY_SERVICE);
-            String getSimSerialNumber = telemamanger.getSimSerialNumber();
-            String getSim1Number = telemamanger.getLine1Number();
+            // TelephonyManager telemamanger = (TelephonyManager) this.context.getSystemService(this.context.TELEPHONY_SERVICE);
+            // String getSimSerialNumber = telemamanger.getSimSerialNumber();
+            // String getSim1Number = telemamanger.getLine1Number();
             // String getSim2Number = telemamanger.getLine2Number();
 
             WritableArray result = Arguments.createArray();
@@ -88,7 +88,7 @@ public class CallLogModule extends ReactContextBaseJavaModule {
             final int DATE_COLUMN_INDEX = cursor.getColumnIndex(Calls.DATE);
             final int DURATION_COLUMN_INDEX = cursor.getColumnIndex(Calls.DURATION);
             final int NAME_COLUMN_INDEX = cursor.getColumnIndex(Calls.CACHED_NAME);
-            final int SIM_NUMBER_COLUMN_INDEX = cursor.getColumnIndex(Calls.VIA_NUMBER);
+            // final int SIM_NUMBER_COLUMN_INDEX = cursor.getColumnIndex(Calls.VIA_NUMBER);
             final int GEOCODED_LOCATION_COLUMN_INDEX = cursor.getColumnIndex(Calls.GEOCODED_LOCATION);
             final int PHONE_ACCOUNT_ID_COLUMN_INDEX = cursor.getColumnIndex(Calls.PHONE_ACCOUNT_ID);
             
@@ -101,7 +101,7 @@ public class CallLogModule extends ReactContextBaseJavaModule {
                 String phoneNumber = cursor.getString(NUMBER_COLUMN_INDEX);
                 int duration = cursor.getInt(DURATION_COLUMN_INDEX);
                 String name = cursor.getString(NAME_COLUMN_INDEX);
-                String simNumber = cursor.getString(SIM_NUMBER_COLUMN_INDEX);
+                // String simNumber = cursor.getString(SIM_NUMBER_COLUMN_INDEX);
                 String geocodedLocation = cursor.getString(GEOCODED_LOCATION_COLUMN_INDEX);
                 String subscriptionId = cursor.getString(PHONE_ACCOUNT_ID_COLUMN_INDEX);
                 
@@ -126,10 +126,10 @@ public class CallLogModule extends ReactContextBaseJavaModule {
                     callLog.putString("phoneNumber", phoneNumber);
                     callLog.putInt("duration", duration);
                     callLog.putString("name", name); 
-                    callLog.putString("simNumber", simNumber);
+                    // callLog.putString("simNumber", simNumber);
                     callLog.putString("geocodedLocation", geocodedLocation);
                     callLog.putString("subscriptionId", subscriptionId); 
-                    callLog.putString("Sim1Number", getSim1Number);
+                    // callLog.putString("Sim1Number", getSim1Number);
                     // callLog.putString("Sim2Number", getSim2Number);
                     callLog.putString("timestamp", timestampStr);
                     callLog.putString("dateTime", dateTime);
